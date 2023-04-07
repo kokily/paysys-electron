@@ -1,0 +1,47 @@
+{
+  "name": "paysys-electron",
+  "version": "1.0.0",
+  "description": "Paysys Shop Electron Version",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "deploy:win64": "electron-builder --win nsis:x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokily/paysys-electron.git"
+  },
+  "author": "kokily",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^24.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "productName": "행사전표시스템 Desktop Ver",
+    "appId": "kr.kokily.paysys",
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "./assets/install.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  }
+}
